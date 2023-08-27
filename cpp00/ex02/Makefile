@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/23 15:21:25 by yloutfi           #+#    #+#              #
-#    Updated: 2023/08/27 12:45:21 by yloutfi          ###   ########.fr        #
+#    Created: 2023/08/26 14:31:28 by yloutfi           #+#    #+#              #
+#    Updated: 2023/08/27 12:45:35 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = account
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 CC = c++
 
-SRCS = Main.cpp PhoneBook.cpp Contact.cpp
+SRCS = tests.cpp Account.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
