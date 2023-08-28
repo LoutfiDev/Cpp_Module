@@ -10,19 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __CONTACT_H__
+#define __CONTACT_H__
+
 #include <iostream>
 #include <cstring>
 
 class Contact
 {
 	public:
-		int	index;
-		std::string firstName;
+
+		int			index;
+		std::string	firstName;
 		std::string lastName;
 		std::string nickName;
 		std::string phoneNumber;
 		std::string darkSecret;
-		Contact set_data();
-		void display(Contact contact);
+		void display( void ) const;
+
+		
+		void set_firstName( void );
+		void set_lastName( void );
+		void set_nickName( void );
+		void set_phoneNumber( void );
+		void set_darkSecret( void );
+
+
 };
 
+#endif

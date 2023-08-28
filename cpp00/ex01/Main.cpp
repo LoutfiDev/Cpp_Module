@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:08:16 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/26 10:31:57 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/08/28 09:14:07 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ int main()
 		switch (value)
 		{
 			case MyEnum::ADD:
-				phonebook.set_contact(&phonebook);
+				phonebook.set_contact();
 				break;
 			case MyEnum::SEARCH:
-				phonebook.get_contact(phonebook);
+				phonebook.get_contact();
 				break;
 			case MyEnum::EXIT:
 				return (0);

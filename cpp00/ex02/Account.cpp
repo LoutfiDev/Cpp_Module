@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:33:17 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/27 17:58:26 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/08/28 08:47:57 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Account::Account ( int initial_deposit ) : _amount(initial_deposit), \
 	_accountIndex(Account::_nbAccounts), _nbDeposits(0), _nbWithdrawals(0) 
 {
 	_displayTimestamp();
-	std::cout << " " << "index:" << _accountIndex << ";" << "amount:" \ 
+	std::cout << " " << "index:" << _accountIndex << ";" << "amount:" \
 		<< _amount << ";created" << std::endl;
 	Account::_nbAccounts += 1;
 	Account::_totalAmount += _amount;
@@ -32,12 +32,12 @@ Account::Account ( int initial_deposit ) : _amount(initial_deposit), \
 Account::~Account ( void )
 {
 	_displayTimestamp();
-	std::cout << " " << "index:" << _accountIndex << ";" << "amount:" \ 
+	std::cout << " " << "index:" << _accountIndex << ";" << "amount:" \
 		<< _amount << ";closed" << std::endl;
-	// Account::_nbAccounts -= 1;
-	// Account::_totalAmount -= _amount;
-	// Account::_totalNbDeposits -= _nbDeposits;
-	// Account::_totalNbWithdrawals -= _nbWithdrawals;
+	_nbAccounts -= 1;
+	_totalAmount -= _amount;
+	_totalNbDeposits -= _nbDeposits;
+	_totalNbWithdrawals -= _nbWithdrawals;
 }
 
 void Account::_displayTimestamp( void )

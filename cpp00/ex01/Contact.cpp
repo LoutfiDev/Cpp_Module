@@ -6,21 +6,22 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:45:50 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/26 10:33:11 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/08/28 09:33:54 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 
-void Contact::display(Contact contact)
+void Contact::display( void ) const
 {
-	std::cout << contact.index <<std::endl;
-	std::cout << contact.firstName <<std::endl;
-	std::cout << contact.lastName <<std::endl;
-	std::cout << contact.nickName <<std::endl;
+	std::cout << index <<std::endl;
+	std::cout << firstName <<std::endl;
+	std::cout << lastName <<std::endl;
+	std::cout << nickName <<std::endl;
 }
-void set_firstName(Contact *contact)
+
+void Contact::set_firstName()
 {
 	
 	std::string tmp;
@@ -33,10 +34,10 @@ void set_firstName(Contact *contact)
 		if (!tmp.empty())
 			break;
 	}
-	contact->firstName = tmp;
+	firstName = tmp;
 }
 
-void set_lastName(Contact *contact)
+void Contact::set_lastName()
 {
 	std::string tmp;
 	while (1)
@@ -48,9 +49,9 @@ void set_lastName(Contact *contact)
 		if (!tmp.empty())
 			break;
 	}
-	contact->lastName = tmp;
+	lastName = tmp;
 }
-void set_nickName(Contact *contact)
+void Contact::set_nickName()
 {
 	std::string tmp;
 	while (1)
@@ -62,10 +63,10 @@ void set_nickName(Contact *contact)
 		if (!tmp.empty())
 			break;
 	}
-	contact->nickName = tmp;
+	nickName = tmp;
 }
 
-void set_phoneNumber(Contact *contact)
+void Contact::set_phoneNumber()
 {
 	std::string tmp;
 	while (1)
@@ -77,10 +78,10 @@ void set_phoneNumber(Contact *contact)
 		if (!tmp.empty())
 			break;
 	}
-	contact->phoneNumber = tmp;
+	phoneNumber = tmp;
 }
 
-void set_darkSecret(Contact *contact)
+void Contact::set_darkSecret()
 {
 	std::string tmp;
 	while (1)
@@ -92,16 +93,5 @@ void set_darkSecret(Contact *contact)
 		if (!tmp.empty())
 			break;
 	}
-	contact->darkSecret = tmp;
-}
-
-Contact Contact::set_data()
-{
-	Contact contact;
-	set_firstName(&contact);
-	set_lastName(&contact);
-	set_nickName(&contact);
-	set_phoneNumber(&contact);
-	set_darkSecret(&contact);
-	return (contact);
+	darkSecret = tmp;
 }

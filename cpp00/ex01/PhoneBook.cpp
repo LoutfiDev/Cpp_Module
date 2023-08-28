@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:22:59 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/26 12:09:31 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/08/28 09:59:33 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,58 +33,62 @@ void formated_print(std::string str)
 	std::cout << "|";
 }
 
-void PhoneBook::display(PhoneBook phonebook)
+void PhoneBook::display() const
 {
 	int i;
-	int index;
+	int _index;
 
 	i = 0;
-	if (phonebook.index > 7)
-		index = 8;
+	if (index > 7)
+		_index = 8;
 	else
-		index = phonebook.index;
+		_index = index;
 	std::cout << "--------------------------------------------" << std::endl;
 	std::cout << "index     |first Name|last Name |nick Name |" << std::endl;
 	std::cout << "--------------------------------------------" << std::endl;
-	while (i < index)
+	while (i < _index)
 	{
-		std::cout << phonebook.contacts[i].index << "         |";
-		formated_print(phonebook.contacts[i].firstName);
-		formated_print(phonebook.contacts[i].lastName);
-		formated_print(phonebook.contacts[i].nickName);
+		std::cout << contacts[i].index << "         |";
+		formated_print(contacts[i].firstName);
+		formated_print(contacts[i].lastName);
+		formated_print(contacts[i].nickName);
 		std::cout << std::endl << "--------------------------------------------" << std::endl;
 		i++;
 	}
 }
 
-void PhoneBook::set_contact(PhoneBook *phonebook)
+void PhoneBook::set_contact()
 {
-	int index;
+	int _index;
 	
-	if (phonebook->index == -1)
-		phonebook->index = 0;
-	if (phonebook->index > 7)
-		index = phonebook->old_index;
+	if (index == -1)
+		index = 0;
+	if (index > 7)
+		_index = old_index;
 	else
-		index = phonebook->index;
-	phonebook->contacts[index] = phonebook->contacts[index].set_data();
-	phonebook->contacts[index].index = index + 1;
-	phonebook->index++;
-	phonebook->old_index = phonebook->index % 8;
+		_index = index;
+	contacts[_index].index = _index + 1;
+	contacts[_index].set_firstName();
+	contacts[_index].set_lastName();
+	contacts[_index].set_nickName();
+	contacts[_index].set_phoneNumber();
+	contacts[_index].set_darkSecret();
+	index++;
+	old_index = index % 8;
 	std::cout << "contact added successfully !" << std::endl;
 }
 
-void PhoneBook::get_contact(PhoneBook phonebook)
+void PhoneBook::get_contact() const
 {
-	int index;
+	int _index;
 	std::string tmp;
 
-	if (phonebook.index == -1)
+	if (index == -1)
 	{
 		std::cout << "Warning: phonebook is empty till now!" << std::endl;
 		return;
 	}
-	phonebook.display(phonebook);
+	display();
 	while (1)
 	{
 		while (1)
@@ -96,17 +100,15 @@ void PhoneBook::get_contact(PhoneBook phonebook)
 			if (!tmp.empty())
 				break;
 		}
-		index = atoi(tmp.c_str());
-		if (index <= 0 || index > phonebook.index + 1)
+		_index = atoi(tmp.c_str());
+		if (_index <= 0 || _index > index + 1)
 		{
 			std::cout << "Error: invalid id!" << std::endl;
 			std::cout << "Hint: enter an id existe in contacts table" << std::endl;
 		}
 		else
 		{
-			Contact contact;
-			contact = phonebook.contacts[index - 1];
-			contact.display(contact);
+			contacts[_index - 1].display();
 			break;
 		}
 	}
