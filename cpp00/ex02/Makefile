@@ -6,13 +6,13 @@
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 14:31:28 by yloutfi           #+#    #+#              #
-#    Updated: 2023/08/27 12:45:35 by yloutfi          ###   ########.fr        #
+#    Updated: 2023/08/30 12:14:41 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = account
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
-CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=g++98 -fsanitize=address -g3
+CC = g++
 
 SRCS = tests.cpp Account.cpp
 

@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/23 15:21:25 by yloutfi           #+#    #+#              #
+#    Created: 2023/08/29 18:02:20 by yloutfi           #+#    #+#              #
 #    Updated: 2023/08/30 12:14:41 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = sed
 CFLAGS = -Wall -Wextra -Werror -std=g++98 -fsanitize=address -g3
 CC = g++
 
-SRCS = Main.cpp PhoneBook.cpp Contact.cpp
+SRCS = main.cpp SedIsLoser.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
