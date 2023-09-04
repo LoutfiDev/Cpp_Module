@@ -6,12 +6,12 @@
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/30 10:14:35 by yloutfi           #+#    #+#              #
-#    Updated: 2023/08/30 12:14:41 by yloutfi          ###   ########.fr        #
+#    Updated: 2023/08/31 11:00:28 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Harl
-CFLAGS = -Wall -Wextra -Werror -std=g++98 -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 CC = g++
 
 SRCS = main.cpp Harl.cpp
