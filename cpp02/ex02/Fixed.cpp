@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:25:27 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/04 17:05:43 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/09/05 10:45:39 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,15 +102,13 @@ Fixed Fixed::operator-(const Fixed& src){
 
 Fixed Fixed::operator*(const Fixed& src){
 	Fixed tmp;
-	tmp.f_int = this->f_int * src.f_int;
-	tmp.f_int /= this->nbr_frac;
+	tmp.f_int = (this->f_int * src.f_int) >> this->nbr_frac;
 	return tmp;
 }
 
 Fixed Fixed::operator/(const Fixed& src){
 	Fixed tmp;
-	tmp.f_int = this->f_int / src.f_int;
-	tmp.f_int *= this->nbr_frac;
+	tmp.f_int = (this->f_int << this->nbr_frac) / src.f_int;
 	return tmp;
 }
 

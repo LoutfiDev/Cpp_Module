@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 14:29:07 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/04 17:03:14 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/09/05 10:41:10 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ Fixed area(Fixed x1, Fixed y1, Fixed x2, Fixed y2, Fixed x3, Fixed y3)
 	Fixed b = ((x2 * y3) - (x2 * y1));
 	Fixed c = ((x3 * y1) - (x3 * y2));
 	Fixed _area = (( a + b + c ) / 2);
-	// Fixed _area = (((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2)) / Fixed(2)));
 	if (_area < 0)
-		return ((_area.toInt() * -1));
+		return ((_area) * -1);
   	return (_area);
 }
 
