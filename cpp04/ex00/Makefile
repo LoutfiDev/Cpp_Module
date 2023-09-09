@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/23 12:38:44 by yloutfi           #+#    #+#              #
-#    Updated: 2023/09/08 11:16:33 by yloutfi          ###   ########.fr        #
+#    Created: 2023/09/07 19:45:00 by yloutfi           #+#    #+#              #
+#    Updated: 2023/09/08 11:16:19 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = a.out
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 CC = g++
 
-SRCS = megaphone.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
