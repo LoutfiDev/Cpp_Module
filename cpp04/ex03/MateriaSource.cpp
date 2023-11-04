@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:24:48 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 10:07:15 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/04 10:50:56 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void MateriaSource::learnMateria(AMateria* m)
 	{
 		if (inventory[i] == NULL)
 		{
-			inventory[i] = m;
+			inventory[i] = m->clone();
 			break;		
 		}
 	}

@@ -24,7 +24,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	// system("leaks a.out");
 
 	return 0;
 }

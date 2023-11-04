@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:16:42 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/03 16:06:50 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/04 11:20:37 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@
 #include <cstring>
 #include "ICharacter.hpp"
 
+typedef struct node{
+    AMateria *addr;
+    node* next;
+}node;
+
 class Character : public ICharacter
 {
     private :
     
         std::string Name;
         AMateria *inventory[4];
+        node *head;
 
     public:
 
@@ -36,6 +42,8 @@ class Character : public ICharacter
         void equip(AMateria* m);
         void unequip(int idx);
         void use(int idx, ICharacter& target);
+        node *create (AMateria *m);
+        void insert (node **head, AMateria *m);
 };
 
 #endif
