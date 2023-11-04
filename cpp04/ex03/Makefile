@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/05 08:46:39 by yloutfi           #+#    #+#              #
-#    Updated: 2023/10/31 10:45:05 by yloutfi          ###   ########.fr        #
+#    Created: 2023/09/07 19:45:00 by yloutfi           #+#    #+#              #
+#    Updated: 2023/11/04 10:11:54 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = a.out
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 CC = g++
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS = main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

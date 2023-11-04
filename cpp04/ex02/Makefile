@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/05 08:46:39 by yloutfi           #+#    #+#              #
-#    Updated: 2023/10/31 10:45:05 by yloutfi          ###   ########.fr        #
+#    Created: 2023/09/07 19:45:00 by yloutfi           #+#    #+#              #
+#    Updated: 2023/10/31 11:31:30 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = a.out
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 CC = g++
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
