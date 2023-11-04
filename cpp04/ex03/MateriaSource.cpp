@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:24:48 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 16:04:06 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/04 21:29:55 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,16 @@ MateriaSource::MateriaSource()
 }
 MateriaSource::MateriaSource(const MateriaSource& copy)
 {
-    *this = copy;
+	for (int i = 0; i < 4; i++)
+	{
+		if (inventory[i] != NULL)
+		{
+			delete inventory[i];
+			inventory[i] = copy.inventory[i]->clone();
+		}
+		else
+			inventory[i] = copy.inventory[i]->clone();
+	}
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource& src)
@@ -29,10 +38,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& src)
 		if (inventory[i] != NULL)
 		{
 			delete inventory[i];
-			inventory[i] = src.inventory[i];
+			inventory[i] = src.inventory[i]->clone();
 		}
 		else
-			inventory[i] = src.inventory[i];
+			inventory[i] = src.inventory[i]->clone();
 	}
 	return *this;
 }

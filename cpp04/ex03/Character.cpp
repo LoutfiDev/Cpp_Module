@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:19:54 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 15:51:49 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/04 21:28:43 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ Character::Character(const Character& copy)
 		if (inventory[i] != NULL)
 		{
 			delete inventory[i];
-			inventory[i] = copy.inventory[i];
+			inventory[i] = copy.inventory[i]->clone();
 		}
 		else
-			inventory[i] = copy.inventory[i];
+			inventory[i] = copy.inventory[i]->clone();
 	}
 }
 
@@ -49,10 +49,10 @@ Character &Character::operator=(const Character& src)
 		if (inventory[i] != NULL)
 		{
 			delete inventory[i];
-			inventory[i] = src.inventory[i];
+			inventory[i] = src.inventory[i]->clone();
 		}
 		else
-			inventory[i] = src.inventory[i];
+			inventory[i] = src.inventory[i]->clone();
 	}
 	return *this;
 }
