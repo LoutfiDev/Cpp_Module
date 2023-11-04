@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:19:54 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 11:27:36 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/04 15:51:49 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ Character::~Character()
 		if (inventory[i] != NULL)
 			delete inventory[i];
 	}
+	deleteList(head);
 }
 
 std::string const & Character::getName() const
@@ -73,6 +74,8 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+	if (!m)
+		return ;
 	for (int i = 0; i < 4; i++)
 	{
 		if (inventory[i] == NULL)
@@ -90,7 +93,7 @@ void Character::unequip(int idx)
 		if (!head)
 			head = create(inventory[idx]);
 		else
-			insert(&head ,inventory[idx]);
+			insert(head ,inventory[idx]);
 		inventory[idx] = NULL;
 	}
 }
@@ -109,13 +112,26 @@ node *Character::create (AMateria *m)
     return ptr;
 }
 
-void Character::insert (node **head, AMateria *m)
+node *Character::insert (node *head, AMateria *m)
 {
-	node *tmp = new node;
-	tmp = *head;
+    node *ptr1;
+    ptr1 = head;
 
-	while (tmp)
-		tmp = tmp->next;
-	node *tmp_ = create(m);
-	tmp->next = tmp_;
+    while(ptr1->next != NULL)
+        ptr1 = ptr1->next;
+    ptr1->next = create(m);
+    return head;
+}
+
+void Character::deleteList (node *head)
+{
+	node *tmp;
+
+	while(head)
+	{
+		tmp = head;
+		head = head->next;
+		delete tmp->addr;
+		delete tmp;
+	}
 }

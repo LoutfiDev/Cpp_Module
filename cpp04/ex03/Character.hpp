@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:16:42 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 11:20:37 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/04 12:27:22 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ class Character : public ICharacter
         void unequip(int idx);
         void use(int idx, ICharacter& target);
         node *create (AMateria *m);
-        void insert (node **head, AMateria *m);
+        node * insert (node *head, AMateria *m);
+        void deleteList (node *head);
 };
 
 #endif
