@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 14:33:17 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 08:47:57 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/07 12:06:03 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-Account::Account ( int initial_deposit ) : _amount(initial_deposit), \
-	_accountIndex(Account::_nbAccounts), _nbDeposits(0), _nbWithdrawals(0) 
+Account::Account ( int initial_deposit ) : _accountIndex(Account::_nbAccounts), _amount(initial_deposit), \
+	 _nbDeposits(0), _nbWithdrawals(0) 
 {
 	_displayTimestamp();
 	std::cout << " " << "index:" << _accountIndex << ";" << "amount:" \

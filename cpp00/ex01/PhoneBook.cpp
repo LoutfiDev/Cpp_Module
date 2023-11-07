@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:22:59 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 09:59:33 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/07 11:18:40 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void formated_print(std::string str)
 {
-	if (size(str) > 10)
+	if (str.length() > 10)
 	{
 		for(int i=0; i < 9; i++)
 			std::cout << str[i];
@@ -23,7 +23,7 @@ void formated_print(std::string str)
 	else
 	{
 		std::cout << str;	
-		int len = size(str);
+		int len = str.length();
 		while (len < 10)
 		{
 			std::cout << " ";
@@ -49,9 +49,9 @@ void PhoneBook::display() const
 	while (i < _index)
 	{
 		std::cout << contacts[i].index << "         |";
-		formated_print(contacts[i].firstName);
-		formated_print(contacts[i].lastName);
-		formated_print(contacts[i].nickName);
+		formated_print(contacts[i].get_firstName());
+		formated_print(contacts[i].get_lastName());
+		formated_print(contacts[i].get_nickName());
 		std::cout << std::endl << "--------------------------------------------" << std::endl;
 		i++;
 	}
@@ -101,7 +101,7 @@ void PhoneBook::get_contact() const
 				break;
 		}
 		_index = atoi(tmp.c_str());
-		if (_index <= 0 || _index > index + 1)
+		if (_index <= 0 || _index > index)
 		{
 			std::cout << "Error: invalid id!" << std::endl;
 			std::cout << "Hint: enter an id existe in contacts table" << std::endl;

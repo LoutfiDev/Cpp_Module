@@ -6,29 +6,23 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:08:16 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 09:14:07 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/05 10:45:05 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-enum class MyEnum {
-    ADD,
-    SEARCH,
-    EXIT,
-	DEFAULT
-};
 
-MyEnum get_value(const std::string& buff)
+int get_value(const std::string& buff)
 {
-	if (buff == "ADD")
-		return (MyEnum::ADD);
-	else if (buff == "SEARCH")
-		return (MyEnum::SEARCH);
-	else if (buff == "EXIT")
-		return (MyEnum::EXIT);
+	if (buff.compare("ADD") == 0)
+		return (0);
+	else if (buff.compare("SEARCH") == 0)
+		return (1);
+	else if (buff.compare("EXIT") == 0)
+		return (2);
 	else
-		return (MyEnum::DEFAULT);
+		return (3);
 }
 
 int main()
@@ -47,16 +41,16 @@ int main()
 			if (!buff.empty())
 				break;
 		}
-		MyEnum value = get_value(buff);
+		int value = get_value(buff);
 		switch (value)
 		{
-			case MyEnum::ADD:
+			case 0:
 				phonebook.set_contact();
 				break;
-			case MyEnum::SEARCH:
+			case 1:
 				phonebook.get_contact();
 				break;
-			case MyEnum::EXIT:
+			case 2:
 				return (0);
 				break;
 			default:

@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 09:14:22 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 10:09:41 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/05 10:39:47 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class PhoneBook
 {
 	private:
 	
-		int 	index = -1;
-		int 	old_index = 0;
+		int 	index;
+		int 	old_index;
 		Contact contacts[8];
 		
 	public:

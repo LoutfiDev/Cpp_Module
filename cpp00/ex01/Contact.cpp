@@ -6,12 +6,31 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:45:50 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 09:33:54 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/07 11:58:22 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
+int valid_input(std::string str)
+{
+	for(int i=0; i < (int)str.length(); i++)
+	{
+		if (str[i] <= 32 || str[i] == 127)
+			return (0);
+	}
+	return (1);
+}
+
+int valid_number(std::string str)
+{
+	for(int i=0; i < (int)str.length(); i++)
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+	}
+	return (1);
+}
 
 void Contact::display( void ) const
 {
@@ -19,11 +38,12 @@ void Contact::display( void ) const
 	std::cout << firstName <<std::endl;
 	std::cout << lastName <<std::endl;
 	std::cout << nickName <<std::endl;
+	std::cout << phoneNumber <<std::endl;
+	std::cout << darkSecret <<std::endl;
 }
 
 void Contact::set_firstName()
 {
-	
 	std::string tmp;
 	while (1)
 	{
@@ -31,7 +51,7 @@ void Contact::set_firstName()
 		std::getline(std::cin, tmp);
 		if (std::cin.eof())
 			exit (0);
-		if (!tmp.empty())
+		if (!tmp.empty() && valid_input(tmp))
 			break;
 	}
 	firstName = tmp;
@@ -46,7 +66,7 @@ void Contact::set_lastName()
 		std::getline(std::cin, tmp);
 		if (std::cin.eof())
 			exit (0);
-		if (!tmp.empty())
+		if (!tmp.empty() && valid_input(tmp))
 			break;
 	}
 	lastName = tmp;
@@ -60,7 +80,7 @@ void Contact::set_nickName()
 		std::getline(std::cin, tmp);
 		if (std::cin.eof())
 			exit (0);
-		if (!tmp.empty())
+		if (!tmp.empty() && valid_input(tmp))
 			break;
 	}
 	nickName = tmp;
@@ -75,7 +95,7 @@ void Contact::set_phoneNumber()
 		std::getline(std::cin, tmp);
 		if (std::cin.eof())
 			exit (0);
-		if (!tmp.empty())
+		if (!tmp.empty() && valid_input(tmp) && valid_number(tmp))
 			break;
 	}
 	phoneNumber = tmp;
@@ -90,8 +110,34 @@ void Contact::set_darkSecret()
 		std::getline(std::cin, tmp);
 		if (std::cin.eof())
 			exit (0);
-		if (!tmp.empty())
+		if (!tmp.empty() && valid_input(tmp))
 			break;
 	}
 	darkSecret = tmp;
+}
+
+
+std::string Contact::get_firstName( void ) const
+{
+	return firstName;
+}
+
+std::string Contact::get_lastName( void ) const
+{
+	return lastName;
+}
+
+std::string Contact::get_nickName( void ) const
+{
+	return nickName;
+}
+
+std::string Contact::get_phoneNumber( void ) const
+{
+	return phoneNumber;
+}
+
+std::string Contact::get_darkSecret( void ) const
+{
+	return darkSecret;
 }
