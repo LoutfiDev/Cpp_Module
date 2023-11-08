@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:22:59 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/07 11:18:40 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/08 15:07:04 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,10 @@ void formated_print(std::string str)
 {
 	if (str.length() > 10)
 	{
-		for(int i=0; i < 9; i++)
-			std::cout << str[i];
-		std::cout << ".";
+		str.resize(9);
+		str.append(1, '.');
 	}
-	else
-	{
-		std::cout << str;	
-		int len = str.length();
-		while (len < 10)
-		{
-			std::cout << " ";
-			len++;
-		}
-	}
+	std::cout << std::setw(10) << str;
 	std::cout << "|";
 }
 
@@ -48,7 +38,7 @@ void PhoneBook::display() const
 	std::cout << "--------------------------------------------" << std::endl;
 	while (i < _index)
 	{
-		std::cout << contacts[i].index << "         |";
+		std::cout << std::setw(10) << contacts[i].index << "|";
 		formated_print(contacts[i].get_firstName());
 		formated_print(contacts[i].get_lastName());
 		formated_print(contacts[i].get_nickName());

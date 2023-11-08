@@ -6,13 +6,13 @@
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/23 12:38:44 by yloutfi           #+#    #+#              #
-#    Updated: 2023/10/31 10:45:05 by yloutfi          ###   ########.fr        #
+#    Updated: 2023/11/08 15:17:16 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
-CC = g++
+CXX = c++
 
 SRCS = megaphone.cpp
 

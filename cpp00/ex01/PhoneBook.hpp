@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 09:14:22 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/05 10:39:47 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/08 14:56:32 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define __PHONEBOOK_H__
 
 #include <iostream>
+#include <iomanip>
 #include <cstring>
 #include <cstdlib>
 #include "Contact.hpp"

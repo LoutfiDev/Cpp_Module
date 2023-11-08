@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:45:50 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/07 11:58:22 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/08 15:14:43 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int valid_input(std::string str)
 {
 	for(int i=0; i < (int)str.length(); i++)
 	{
-		if (str[i] <= 32 || str[i] == 127)
+		if ((str[i] <= 31 || str[i] == 127))
 			return (0);
 	}
 	return (1);
@@ -53,6 +53,7 @@ void Contact::set_firstName()
 			exit (0);
 		if (!tmp.empty() && valid_input(tmp))
 			break;
+		std::cout << "Invalid input !!" << std::endl;
 	}
 	firstName = tmp;
 }
@@ -68,6 +69,7 @@ void Contact::set_lastName()
 			exit (0);
 		if (!tmp.empty() && valid_input(tmp))
 			break;
+		std::cout << "Invalid input !!" << std::endl;
 	}
 	lastName = tmp;
 }
@@ -82,6 +84,7 @@ void Contact::set_nickName()
 			exit (0);
 		if (!tmp.empty() && valid_input(tmp))
 			break;
+		std::cout << "Invalid input !!" << std::endl;
 	}
 	nickName = tmp;
 }
@@ -97,6 +100,7 @@ void Contact::set_phoneNumber()
 			exit (0);
 		if (!tmp.empty() && valid_input(tmp) && valid_number(tmp))
 			break;
+		std::cout << "Invalid input !!" << std::endl;
 	}
 	phoneNumber = tmp;
 }
@@ -112,6 +116,7 @@ void Contact::set_darkSecret()
 			exit (0);
 		if (!tmp.empty() && valid_input(tmp))
 			break;
+		std::cout << "Invalid input !!" << std::endl;
 	}
 	darkSecret = tmp;
 }
