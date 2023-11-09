@@ -6,11 +6,16 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:22:59 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/08 15:07:04 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/09 16:02:49 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+
+PhoneBook::PhoneBook() : index(-1), count(0), old_index(0) {}
+
+PhoneBook::~PhoneBook() {}
 
 void formated_print(std::string str)
 {
@@ -29,12 +34,12 @@ void PhoneBook::display() const
 	int _index;
 
 	i = 0;
-	if (index > 7)
-		_index = 8;
+	if (index > MAX)
+		_index = MAX;
 	else
 		_index = index;
 	std::cout << "--------------------------------------------" << std::endl;
-	std::cout << "index     |first Name|last Name |nick Name |" << std::endl;
+	std::cout << "     index|first Name| last Name| nick Name|" << std::endl;
 	std::cout << "--------------------------------------------" << std::endl;
 	while (i < _index)
 	{
@@ -53,18 +58,20 @@ void PhoneBook::set_contact()
 	
 	if (index == -1)
 		index = 0;
-	if (index > 7)
+	if (count > MAX - 1)
 		_index = old_index;
 	else
-		_index = index;
+		_index = count;
 	contacts[_index].index = _index + 1;
 	contacts[_index].set_firstName();
 	contacts[_index].set_lastName();
 	contacts[_index].set_nickName();
 	contacts[_index].set_phoneNumber();
 	contacts[_index].set_darkSecret();
-	index++;
-	old_index = index % 8;
+	if (index < MAX)
+		index++;
+	count++;
+	old_index = count % MAX;
 	std::cout << "contact added successfully !" << std::endl;
 }
 
