@@ -6,13 +6,13 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:39:13 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 14:53:31 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 10:26:52 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie( void )
+Zombie::Zombie( void ) : name("default")
 {
 }
 
@@ -28,10 +28,6 @@ Zombie::~Zombie()
 
 void Zombie::announce()
 {
-	if (name == "Foo")
-		std::cout << name;
-	else 
-		std::cout << "<" << name << ">";
-	std::cout <<": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name <<": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:18:17 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 17:05:09 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 12:08:12 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Weapon
 
 	
 	public:
-		const std::string getType( void );
+		const std::string& getType( void );
 		void setType( std::string _type );
 		Weapon( std::string _type );
 		~Weapon();

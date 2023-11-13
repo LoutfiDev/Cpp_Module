@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 10:14:56 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/30 10:23:37 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 15:35:59 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Harl
 		
 		Harl();
 		~Harl();
-		void complain( std::string level );;
+		void complain( std::string level );
 };
 
 #endif

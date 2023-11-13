@@ -6,27 +6,20 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 10:14:27 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/30 11:58:10 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 16:56:23 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-
-void test_harl(std::string level)
-{
-	Harl harl;
-	void (Harl::* ptr) (std::string) = &Harl::complain;
-	(harl.*ptr) (level);
-}
-
 int main()
 {
-	test_harl("DEBUG");
-	test_harl("INFO");
-	test_harl("WARNING");
-	test_harl("ERROR");
-	test_harl("blabla");
-	test_harl("");
+	Harl harl;
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("blabla");
+	harl.complain("");
 	return(0);
 }

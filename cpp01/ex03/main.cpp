@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:17:58 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/29 11:58:53 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 13:18:35 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int main()
 		HumanA bob("Bob", club);
 		bob.attack();
 		club.setType("some other type of club");
+		std::string tmp = club.getType();
+		tmp = "salam";
 		bob.attack();
 	}
 	{

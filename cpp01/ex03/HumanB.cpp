@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:19:26 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/29 11:57:34 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 13:12:55 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ HumanB::~HumanB()
 }
 void HumanB::setWeapon(Weapon& _weapon)
 {
-	Weapon& tmp = _weapon;
-	weapon = &tmp;
+	// Weapon& tmp = _weapon;
+	// weapon = &tmp;
+	weapon = &_weapon;
 }
 void HumanB::attack( void )
 {

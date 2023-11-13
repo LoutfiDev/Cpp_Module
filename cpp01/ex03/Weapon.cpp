@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:18:33 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 17:05:18 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 12:08:27 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Weapon::~Weapon()
 {
 }
 
-const std::string Weapon::getType( void )
+const std::string& Weapon::getType( void )
 {
 	return type;
 }

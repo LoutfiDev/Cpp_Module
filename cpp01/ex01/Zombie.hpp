@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:38:26 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/28 14:53:38 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/11 15:50:40 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ class Zombie
 		
 	public:
 		
+		Zombie();
 		Zombie(std::string name);
+		void announce();
 		~Zombie();
-		void announce( void );
-		Zombie* newZombie( std::string name );
-		void randomChump( std::string name );
 		Zombie* zombieHorde( int N, std::string name );
-		Zombie( void );
 };
 
 #endif

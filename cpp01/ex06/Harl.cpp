@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 10:14:47 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/08/30 12:12:27 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/13 17:07:13 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,41 +43,31 @@ void Harl::error( void )
 	std::cout << "[ ERROR ]" << std::endl;
 	std::cout << "ERROR COMPLAINE !" << std::endl;
 }
-enum class MyEnum {
-    DEBUG,
-    INFO,
-    WARNING,
-	ERROR,
-	DEFAULT
-};
 
-MyEnum get_value(const std::string& buff)
+int get_value(const std::string& buff)
 {
-	if (buff == "DEBUG")
-		return (MyEnum::DEBUG);
-	else if (buff == "INFO")
-		return (MyEnum::INFO);
-	else if (buff == "WARNING")
-		return (MyEnum::WARNING);
-	else if (buff == "ERROR")
-		return (MyEnum::ERROR);
-	else
-		return (MyEnum::DEFAULT);
+	std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++)
+	{
+		if (str[i] == buff)
+			return (i);
+	}
+	return (4);
 }
 void Harl::complain( std::string level )
 {
 	while (1)
 	{
-		MyEnum value = get_value(level);
+		int value = get_value(level);
 		switch (value)
 		{
-			case MyEnum::DEBUG:
+			case 0:
 				debug();
-			case MyEnum::INFO:
+			case 1:
 				info();
-			case MyEnum::WARNING:
+			case 2:
 				warning();
-			case MyEnum::ERROR:
+			case 3:
 				error();
 				return;
 			default:
