@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:38:26 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/11 15:50:40 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/14 14:29:29 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ class Zombie
 		Zombie();
 		Zombie(std::string name);
 		void announce();
+		void setName(const std::string _name);
 		~Zombie();
-		Zombie* zombieHorde( int N, std::string name );
 };
+
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

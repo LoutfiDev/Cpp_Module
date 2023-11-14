@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:39:13 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/13 10:26:52 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/14 14:31:28 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,10 @@ Zombie::~Zombie()
 void Zombie::announce()
 {
 	std::cout << name <<": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setName(const std::string _name)
+{
+	name = _name;
 }
 

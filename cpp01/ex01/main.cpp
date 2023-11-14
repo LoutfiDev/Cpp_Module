@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:38:12 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/13 10:36:50 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/14 14:33:17 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int main()
 {
-	Zombie *zombieHorde = NULL;
-	int		nbrZombies = 0;
+	Zombie *z = NULL;
+	int		nbrZombies = 2;
 	
-	zombieHorde = zombieHorde->zombieHorde(nbrZombies, "zombieHorde");
+	z = zombieHorde(nbrZombies, "zombieHorde");
 	for (int i = 0; i < nbrZombies; i++)
-		zombieHorde[i].announce();
-	if (zombieHorde)
-		delete [] zombieHorde;	
+		z[i].announce();
+	if (z)
+		delete [] z;	
 }

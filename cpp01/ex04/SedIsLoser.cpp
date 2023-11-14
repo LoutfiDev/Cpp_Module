@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:01:01 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/13 15:14:03 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/14 14:34:17 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Sed::~Sed()
 
 void Sed::execute (void)
 {
-	std::ifstream 	myFile(fileName);
+	std::ifstream 	myFile(fileName.c_str());
 	fileName = fileName.append(".replace");
-	std::ofstream 	myFileCopy(fileName);
+	std::ofstream 	myFileCopy(fileName.c_str());
 	std::string		tmp;
 	std::size_t 	pos;
 	
