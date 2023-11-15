@@ -6,36 +6,34 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 19:58:01 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/06 16:49:20 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/15 11:36:40 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ScavTrap(), FragTrap()
 {
-	setName("default_clap_name");
-	setEnergyPoints(50);
+	ScavTrap::name ="default_clap_name";
+	ScavTrap::energyPoints = 50;
 	std::cout << "DiamondTrap Default constructor called" << std::endl;
 }
 DiamondTrap::DiamondTrap(std::string _name) : ClapTrap(_name), ScavTrap(_name), \
 	FragTrap(_name), name(_name)
 {
-	setName(_name + "_clap_name");
-	setEnergyPoints(50);
+	ScavTrap::name = _name + "_clap_name";
+	ScavTrap::energyPoints = 50;
 	std::cout << "DiamondTrap param constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& copy) : ClapTrap(copy), ScavTrap(copy), \
 	FragTrap(copy)
 {
-	std::cout << "DiamondTrap Copy constructor called" << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap& src)
 {
-	ClapTrap::operator=(src);
-	std::cout << "DiamondTrap Copy assignment operator called" << std::endl;
+	ScavTrap::operator=(src);
 	return *this;
 }
 
@@ -51,5 +49,5 @@ void DiamondTrap::attack(const std::string& target)
 
 void DiamondTrap::whoAmI()
 {
-	std::cout << name << " | " << getName() << std::endl;
+	std::cout << name << " | " << ScavTrap::name << std::endl;
 }

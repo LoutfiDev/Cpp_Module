@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 08:45:57 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/06 15:57:45 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/15 11:20:36 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int main()
 	
 	DiamondTrap g("anas");
 	DiamondTrap h = g;
-	// std::cout << h.getName() << std::endl;
 	h.attack("WALO");
 }

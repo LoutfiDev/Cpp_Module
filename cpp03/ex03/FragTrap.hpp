@@ -6,17 +6,16 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 19:44:05 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/06 16:50:18 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/15 11:27:22 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FragTrap_H__
-#define __FragTrap_H__
+#ifndef __FRAGTRAP_H__
+#define __FRAGTRAP_H__
 
 #include "ClapTrap.hpp"
-#include "FragTrap.hpp"
 
-class FragTrap :virtual public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap();

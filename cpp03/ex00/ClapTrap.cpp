@@ -6,13 +6,13 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 08:46:21 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/06 11:34:05 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/15 10:07:06 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap() : name("default"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -25,26 +25,30 @@ ClapTrap::ClapTrap(std::string _name) : name(_name), hitPoints(10), \
 
 ClapTrap::ClapTrap(const ClapTrap& copy)
 {
-	*this = copy;
 	std::cout << "Copy constructor called" << std::endl;
+	*this = copy;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& src)
 {
+	std::cout << "Copy assignment operator called" << std::endl;
 	name = src.name;
 	hitPoints = src.hitPoints;
 	energyPoints = src.energyPoints;
 	attackDamage = src.attackDamage;
-	std::cout << "Copy assignment operator called" << std::endl;
 	return *this;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
 	if (hitPoints && energyPoints)
+	{
 		std::cout << "ClapTrap " << name\
 			<< " attacks " << target << ", causing " << attackDamage \
 			<< " points of damage!" << std::endl;
+		energyPoints--;
+	}
+		
 	else
 		std::cout << "ClapTrap " << name << " cannot attak!" << std::endl;
 }
@@ -53,12 +57,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (energyPoints)
 	{
-		if (hitPoints > amount && (int)amount > 0)
+		if (hitPoints > (int)amount && (int)amount > 0)
 		{
 			hitPoints -= amount;
-			energyPoints--;
 			std::cout << "ClapTrap " << name\
-				<< " gets " << amount << " hit points back" << std::endl;	
+				<< " lose " << amount << " hit points" << std::endl;	
 		}
 		else
 			std::cout << "ClapTrap " << name\

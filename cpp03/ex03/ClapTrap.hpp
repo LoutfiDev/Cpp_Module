@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 08:46:11 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/06 10:46:38 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/15 10:36:12 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		
 		std::string name;
 		int 		hitPoints; 
@@ -37,19 +37,6 @@ class ClapTrap
 		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		
-		std::string getName ( void );
-		void setName ( std::string _name );
-		
-		int getHitPoints ( void );
-		void setHitPoints ( unsigned int _hitPoints );
-		
-		int getEnergyPoints ( void );
-		void setEnergyPoints ( unsigned int _energyPoints );
-		
-		int getAttakDamage ( void );
-		void setAttackDamage ( unsigned int _attackDamage );
-
 };
 
 

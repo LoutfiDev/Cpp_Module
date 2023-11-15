@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 08:45:57 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/05 16:05:50 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/15 10:08:33 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ int main()
 {
 	ClapTrap a("said");
 	ClapTrap b = a;
-	b.attack("hamid");
-	b.takeDamage(2);
+	ClapTrap c("walid");
+
+
+	b.attack("walid");
+	c.takeDamage(2);
+	
 }

@@ -6,38 +6,34 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 19:44:16 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/09/06 16:51:31 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/15 11:00:33 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
-	setName("default2");
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	hitPoints = 100;
+	energyPoints = 100;
+	attackDamage = 30;
 	std::cout << "FragTrap Default constructor called" << std::endl;
 }
 FragTrap::FragTrap(std::string _name) : ClapTrap(_name)
 {
-	setName(_name);
-	setHitPoints(100);
-	setEnergyPoints(100);
-	setAttackDamage(30);
+	hitPoints = 100;
+	energyPoints = 100;
+	attackDamage = 30;
 	std::cout << "FragTrap param constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy)
 {
-	std::cout << "FragTrap Copy constructor called" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap& src)
 {
 	ClapTrap::operator=(src);
-	std::cout << "FragTrap Copy assignment operator called" << std::endl;
 	return *this;
 }
 
@@ -48,12 +44,20 @@ FragTrap::~FragTrap()
 
 void FragTrap::attack(const std::string& target)
 {
-	std::cout << "FragTrap ";
-	ClapTrap::attack(target);
+	if (hitPoints && energyPoints)
+	{
+		std::cout << "FragTrap " << name\
+			<< " attacks " << target << ", causing " << attackDamage \
+			<< " points of damage!" << std::endl;
+		energyPoints--;
+	}
+		
+	else
+		std::cout << "FragTrap " << name << " cannot attak!" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << getName() \
+	std::cout << "FragTrap " << name \
 			<< " says: high fives guys."<< std::endl;
 }
