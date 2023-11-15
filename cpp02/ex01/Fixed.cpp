@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 14:25:27 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/14 10:48:55 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/14 18:33:20 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,12 @@ Fixed::Fixed(const int nbr)
 {
 	std::cout << "Int constructor called" << std::endl;
 	f_int = nbr * (1 << nbr_frac);
-	std::cout << "construction of a is: " << f_int << std::endl;
 }
 
 Fixed::Fixed(const float nbr)
 {
 	std::cout << "Float constructor called" << std::endl;
 	f_int = roundf(nbr * (1 << nbr_frac));
-	std::cout << "construction of a is: " << f_int << std::endl;
 
 }
 Fixed::Fixed(const Fixed& copy)
