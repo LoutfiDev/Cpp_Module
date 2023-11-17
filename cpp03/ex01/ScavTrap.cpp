@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:48:31 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/15 10:50:29 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/17 10:49:47 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void ScavTrap::attack(const std::string& target)
 			<< " points of damage!" << std::endl;
 		energyPoints--;
 	}
-		
 	else
 		std::cout << "ScavTrap " << name << " cannot attak!" << std::endl;
 }

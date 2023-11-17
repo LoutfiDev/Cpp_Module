@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 19:44:05 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/15 11:27:22 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/17 09:31:45 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class FragTrap : virtual public ClapTrap
 		FragTrap &operator=(const FragTrap& src);
 		~FragTrap();
 		
-		void attack(const std::string& target);
 		void highFivesGuys(void);
 };
 

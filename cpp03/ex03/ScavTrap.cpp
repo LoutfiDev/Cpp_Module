@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:48:31 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/15 10:50:29 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/17 09:40:59 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void ScavTrap::attack(const std::string& target)
 	}
 		
 	else
-		std::cout << "ScavTrap " << name << " cannot attak!" << std::endl;
+		std::cout << "ScavTrap " << ScavTrap::name << " cannot attak!" << std::endl;
 }
 
 void ScavTrap::guardGate()

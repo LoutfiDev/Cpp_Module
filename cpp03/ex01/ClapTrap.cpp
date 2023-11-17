@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 08:46:21 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/15 10:49:48 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/17 10:47:37 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,15 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (energyPoints)
+	if (hitPoints > (int)amount && (int)amount > 0)
 	{
-		if (hitPoints > (int)amount && (int)amount > 0)
-		{
-			hitPoints -= amount;
-			std::cout << "ClapTrap " << name\
-				<< " lose " << amount << " hit points" << std::endl;	
-		}
-		else
-			std::cout << "ClapTrap " << name\
-			<< " can't take this damage!" << std::endl;
+		hitPoints -= amount;
+		std::cout << "ClapTrap " << name\
+			<< " lose " << amount << " hit points" << std::endl;	
 	}
 	else
 		std::cout << "ClapTrap " << name\
-			<< " have no energy!" << std::endl;
+		<< " can't take this damage!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
