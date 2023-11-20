@@ -5,7 +5,7 @@
 #include "Character.hpp"
 
 
-int main()
+void test()
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -14,17 +14,22 @@ int main()
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
+	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	// tmp = src->createMateria("cure");
-	// me->equip(tmp);
-	ICharacter* bob = new Character("bob");
+	ICharacter* bob = new Character("walid");
 	me->use(0, *bob);
-	// me->use(1, *bob);
+	me->use(1, *bob);
 	me->unequip(0);
 	me->unequip(1);
+	
 	delete bob;
 	delete me;
 	delete src;
+}
+
+int main()
+{
+	test();
 	// system("leaks a.out");
 	return 0;
 }

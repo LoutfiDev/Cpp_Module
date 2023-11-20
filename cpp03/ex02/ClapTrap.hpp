@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 08:46:11 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/15 10:36:12 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/19 10:21:15 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap
 		ClapTrap &operator=(const ClapTrap& src);
 		~ClapTrap();
 		
-		virtual void attack(const std::string& target);
+		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

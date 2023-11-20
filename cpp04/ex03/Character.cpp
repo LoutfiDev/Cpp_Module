@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:19:54 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 21:28:43 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:36:19 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,17 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	if (!m)
-		return ;
-	for (int i = 0; i < 4; i++)
+	if (m)
 	{
-		if (inventory[i] == NULL)
+		for (int i = 0; i < 4; i++)
 		{
-			inventory[i] = m->clone();
-			break;		
+			if (inventory[i] == NULL)
+			{
+				inventory[i] = m->clone();
+				break ;		
+			}
 		}
+		delete m;
 	}
 }
 
@@ -100,6 +102,9 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
+	ICharacter *test = &target;
+	if (!test)
+		return;
 	if ((idx >= 0 && idx <= 3) && inventory[idx] != NULL)
 		inventory[idx]->use(target);
 }

@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 11:24:48 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 21:29:55 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/18 11:06:46 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void MateriaSource::learnMateria(AMateria* m)
 			break;		
 		}
 	}
+	delete m;
 }
 AMateria* MateriaSource::createMateria(std::string const & type)
 {

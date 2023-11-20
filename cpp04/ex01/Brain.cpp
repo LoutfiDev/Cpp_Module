@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:52:14 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/10/31 11:39:39 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/20 12:42:16 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ Brain::Brain()
 
 Brain::Brain(const Brain& copy)
 {
-	*this = copy;
+	for(int i = 0; i < 100; i++)
+		ideas[i] = copy.ideas[i];
 	std::cout << "Brain Copy constructor called" << std::endl;
 }
 

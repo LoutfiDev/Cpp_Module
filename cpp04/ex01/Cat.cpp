@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:21:41 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/01 09:27:10 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/20 12:38:26 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ Cat::Cat(std::string _type) : Animal(_type)
 
 Cat::Cat(const Cat& copy) : Animal(copy)
 {
+	*(brain) = *(copy.brain);
 	std::cout << "Cat Copy constructor called" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat& src)
 {
 	Animal::operator=(src);
-	for(int i =0; i < 100; i++)
-		brain->ideas[i] = src.brain->ideas[i];
+	*(brain) = *(src.brain);
 	std::cout << "Cat Copy assignment operator called" << std::endl;
 	return *this;
 }
