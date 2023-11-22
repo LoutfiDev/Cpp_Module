@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:17:59 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/02 15:50:02 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:42:04 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "AMateria.hpp"
 
 class AMateria;
+class Character;
 
 class ICharacter
 {   
@@ -27,6 +28,7 @@ class ICharacter
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
+        virtual Character &operator=(const Character& src) = 0;
 };
 
 #endif

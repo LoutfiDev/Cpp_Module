@@ -12,19 +12,20 @@ void test()
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("asdasd");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->equip(tmp);
 	me->equip(tmp);
 	ICharacter* bob = new Character("walid");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	me->unequip(0);
-	me->unequip(1);
-	
-	delete bob;
+	*bob = *me;
 	delete me;
+	// bob->unequip(0);
+
+
+	delete bob;
 	delete src;
+	// delete me;
 }
 
 int main()

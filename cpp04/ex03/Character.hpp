@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:16:42 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/04 12:27:22 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:40:18 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 #include <iostream>
 #include <cstring>
 #include "ICharacter.hpp"
+
+
+class AMateria;
+// class ICharacter;
 
 typedef struct node{
     AMateria *addr;
@@ -35,7 +39,7 @@ class Character : public ICharacter
         Character();
         Character(std::string const & name);
         Character(const Character &copy);
-        Character &operator=(const Character &src);
+        Character &operator=(const Character& src);
         ~Character();
 
         std::string const & getName() const;

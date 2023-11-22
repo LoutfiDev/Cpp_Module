@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:19:54 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/20 14:36:19 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:54:33 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,22 @@ Character::Character(std::string const & name) : Name(name)
 
 Character::Character(const Character& copy)
 {
-    Name = copy.Name;
-	for (int i = 0; i < 4; i++)
-	{
-		if (inventory[i] != NULL)
-		{
-			delete inventory[i];
-			inventory[i] = copy.inventory[i]->clone();
-		}
-		else
-			inventory[i] = copy.inventory[i]->clone();
-	}
+   *this = copy;
 }
 
 Character &Character::operator=(const Character& src)
 {
+	if (this == &src)
+		return (*this);
 	Name = src.Name;
 	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i] != NULL)
+		if (inventory[i])
 		{
 			delete inventory[i];
-			inventory[i] = src.inventory[i]->clone();
+			inventory[i] = NULL;;
 		}
-		else
+		if (src.inventory[i])
 			inventory[i] = src.inventory[i]->clone();
 	}
 	return *this;
@@ -74,17 +66,19 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	if (m)
+	if (!m)
+		return ;
+	for (int i = 0; i < 4; i++)
 	{
-		for (int i = 0; i < 4; i++)
+		if (inventory[i] == NULL)
 		{
-			if (inventory[i] == NULL)
-			{
-				inventory[i] = m->clone();
-				break ;		
-			}
+			inventory[i] = m->clone();
+			if (!head)
+				head = create(m);
+			else
+				insert(head ,m);
+			return ;		
 		}
-		delete m;
 	}
 }
 
@@ -120,11 +114,20 @@ node *Character::create (AMateria *m)
 node *Character::insert (node *head, AMateria *m)
 {
     node *ptr1;
+	
     ptr1 = head;
-
+	while (ptr1)
+	{
+		if (ptr1->addr == m)
+			return (head);
+		ptr1 = ptr1->next;
+	}
+	
+    ptr1 = head;
     while(ptr1->next != NULL)
         ptr1 = ptr1->next;
     ptr1->next = create(m);
+	
     return head;
 }
 

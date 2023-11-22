@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:07:28 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/02 11:21:17 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:46:32 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ AMateria::AMateria(const AMateria& copy)
 
 AMateria &AMateria::operator=(const AMateria& src)
 {
-	materia = src.materia;
+	(void) src;
 	return *this;
 }
 
