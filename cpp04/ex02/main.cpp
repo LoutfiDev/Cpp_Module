@@ -6,7 +6,7 @@
 
 #define NBR 4
 
-void test ()
+int main()
 {
 	const Animal** animals = new  const Animal*[NBR];
 
@@ -24,11 +24,6 @@ void test ()
 	for (int i=0; i < NBR; i++)
 		delete animals[i];
 	delete [] animals;
-}
 
-int main()
-{
-	test();
-	// system("leaks a.out");
 	return 0;
 }

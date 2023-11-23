@@ -16,7 +16,7 @@ int main()
 
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	tmp = src->createMateria("sadsadsa");
+	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
 	ICharacter* bob = new Character("bob");

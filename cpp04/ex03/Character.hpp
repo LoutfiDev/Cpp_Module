@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:16:42 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/22 11:40:18 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/23 09:56:38 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 
 class AMateria;
-// class ICharacter;
 
 typedef struct node{
     AMateria *addr;
