@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 11:21:01 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/21 11:34:03 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:09:26 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Cure &Cure::operator=(const Cure& src)
 
 void Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
 
 Cure *Cure::clone() const

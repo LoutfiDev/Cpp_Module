@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:52:14 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/10/31 11:39:39 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/22 16:10:58 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Brain::Brain(const Brain& copy)
 
 Brain &Brain::operator=(const Brain& src)
 {
+	if (this == &src)
+		return (*this);
 	for(int i =0; i < 100; i++)
 		ideas[i] = src.ideas[i];
 	std::cout << "Brain Copy assignment operator called" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:19:54 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/22 11:54:33 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/22 15:16:01 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ void Character::equip(AMateria* m)
 		if (inventory[i] == NULL)
 		{
 			inventory[i] = m->clone();
-			if (!head)
-				head = create(m);
-			else
-				insert(head ,m);
-			return ;		
+			break;
 		}
 	}
+	if (!head)
+		head = create(m);
+	else
+		insert(head ,m);
 }
 
 void Character::unequip(int idx)
