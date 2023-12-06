@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 17:00:15 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/28 18:06:00 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/11/29 15:11:30 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         throw AForm::GradeTooLowException();
     if (!getIsSigned())
         throw AForm::AFormNotSignedException();
-    std::ofstream file(getTarget() + "_shrubbery");
+    std::string name = getTarget() + "_shrubbery";
+    std::ofstream file(name.c_str());
     file << "          .     .  .      +     .      .          .\n\
      .       .      .     #       .           .\n\
         .      .         ###            .      .      .\n\
