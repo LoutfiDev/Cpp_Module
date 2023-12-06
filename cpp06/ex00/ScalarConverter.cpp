@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 11:16:03 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/05 12:55:57 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:19:25 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,19 +103,20 @@ void ScalarConverter::toChar(char c)
 	{
 		std::cout << "char: Non displayable" << std::endl;
 		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(c) << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 	}	
 	else
 	{
+		
 		std::cout << "char: " << c << std::endl;
 		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(c) << std::endl;
+		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 	}
 }
 
-void ScalarConverter::toInt(int i)
+void ScalarConverter::toInt(float i)
 {
 	if (i >= 0 && i <= 127)
 	{
@@ -127,14 +128,17 @@ void ScalarConverter::toInt(int i)
 	else
 		std::cout << "char: impossible" << std::endl;
 	
-	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(i) << std::endl;
+	if (i <= static_cast<double>(INT_MAX) && i >= static_cast<double>(INT_MIN))
+		std::cout << "int: " << static_cast<int>(i) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
 }
 
 void ScalarConverter::toDouble(double d)
 {
-if (d >= 0 && d <= 127)
+	if (d >= 0 && d <= 127)
 	{
 		if ((d >= 0 && d <= 31) || d == 127)
 			std::cout << "char: Non displayable" << std::endl;
@@ -144,14 +148,17 @@ if (d >= 0 && d <= 127)
 	else
 		std::cout << "char: impossible" << std::endl;
 	
-	std::cout << "int: " << static_cast<int>(d) << std::endl;
-	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+	if (d <= static_cast<double>(INT_MAX) && d >= static_cast<double>(INT_MIN))
+		std::cout << "int: " << static_cast<int>(d) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
+	std::cout << "float: " << (float)d << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 }
 
 void ScalarConverter::toFloat(float f)
 {
-if (f >= 0 && f <= 127)
+	if (f >= 0 && f <= 127)
 	{
 		if ((f >= 0 && f <= 31) || f == 127)
 			std::cout << "char: Non displayable" << std::endl;
@@ -161,9 +168,12 @@ if (f >= 0 && f <= 127)
 	else
 		std::cout << "char: impossible" << std::endl;
 	
-	std::cout << "int: " << static_cast<int>(f) << std::endl;
+	if (f <= static_cast<float>(INT_MAX) && f >= static_cast<float>(INT_MIN))
+		std::cout << "int: " << static_cast<int>(f) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(f) << std::endl;
+	std::cout << "double: " << (double)f << std::endl;
 }
 
 void ScalarConverter::convert(std::string arg)
@@ -171,7 +181,7 @@ void ScalarConverter::convert(std::string arg)
 	if (isChar(arg))
 		toChar(*(arg.c_str()));
 	else if (isInt(arg))
-		toInt(atoi(arg.c_str()));
+		toInt(atof(arg.c_str()));
 	else if (isDouble(arg))
 		toDouble(atof(arg.c_str()));
 	else if (isFloat(arg))
