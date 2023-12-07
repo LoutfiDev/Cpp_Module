@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 11:16:03 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/06 11:19:25 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/06 16:10:27 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,94 +96,115 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter& src){ (void)s
 
 ScalarConverter::~ScalarConverter() {}
 
-
-void ScalarConverter::toChar(char c)
+void ScalarConverter::check(std::string arg)
 {
-	if ((c >= 0 && c <= 31) || c == 127)
+	try
 	{
-		std::cout << "char: Non displayable" << std::endl;
-		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
-	}	
-	else
-	{
-		
-		std::cout << "char: " << c << std::endl;
-		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
+		if (!strcmp(arg.c_str(), "+inf") || !strcmp(arg.c_str(), "+inff"))
+        	throw 2;
+   		if (!strcmp(arg.c_str(), "-inf") || !strcmp(arg.c_str(), "-inff"))
+        	throw 3;
+		if (!strcmp(arg.c_str(), "nanf") || !strcmp(arg.c_str(), "nan"))
+			throw 4;
+		convert(arg);
 	}
-}
-
-void ScalarConverter::toInt(float i)
-{
-	if (i >= 0 && i <= 127)
+	catch (int e)
 	{
-		if ((i >= 0 && i <= 31) || i == 127)
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: " << static_cast<char>(i) << std::endl;
+		if (e == 1)
+        {
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: impossible" << std::endl;
+            std::cout << "double: impossible" << std::endl;
+        }
+        else
+        {
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            if (e == 2)
+            {
+                std::cout << "float: +inff" << std::endl;
+                std::cout << "double: +inf" << std::endl;
+            }
+            else if (e == 3)
+            {
+                std::cout << "float: -inff" << std::endl;
+                std::cout << "double: -inf" << std::endl;
+            }
+            else
+            {
+                std::cout << "float: nanf" << std::endl;
+                std::cout << "double: nan" << std::endl;
+            }
+        }
 	}
-	else
-		std::cout << "char: impossible" << std::endl;
-	
-	if (i <= static_cast<double>(INT_MAX) && i >= static_cast<double>(INT_MIN))
-		std::cout << "int: " << static_cast<int>(i) << std::endl;
-	else
-		std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
-}
-
-void ScalarConverter::toDouble(double d)
-{
-	if (d >= 0 && d <= 127)
-	{
-		if ((d >= 0 && d <= 31) || d == 127)
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: " << static_cast<char>(d) << std::endl;
-	}
-	else
-		std::cout << "char: impossible" << std::endl;
-	
-	if (d <= static_cast<double>(INT_MAX) && d >= static_cast<double>(INT_MIN))
-		std::cout << "int: " << static_cast<int>(d) << std::endl;
-	else
-		std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << (float)d << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
-}
-
-void ScalarConverter::toFloat(float f)
-{
-	if (f >= 0 && f <= 127)
-	{
-		if ((f >= 0 && f <= 31) || f == 127)
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: " << static_cast<char>(f) << std::endl;
-	}
-	else
-		std::cout << "char: impossible" << std::endl;
-	
-	if (f <= static_cast<float>(INT_MAX) && f >= static_cast<float>(INT_MIN))
-		std::cout << "int: " << static_cast<int>(f) << std::endl;
-	else
-		std::cout << "int: impossible" << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << (double)f << std::endl;
 }
 
 void ScalarConverter::convert(std::string arg)
 {
+	long double nbr;
 	if (isChar(arg))
-		toChar(*(arg.c_str()));
-	else if (isInt(arg))
-		toInt(atof(arg.c_str()));
-	else if (isDouble(arg))
-		toDouble(atof(arg.c_str()));
-	else if (isFloat(arg))
-		toFloat(atof(arg.c_str()));
+	{
+		nbr = static_cast<int>(arg[0]);
+		toChar(nbr);
+		toInt(nbr);
+		toFloat(nbr);
+		toDouble(nbr);
+	}
+	else if (isInt(arg) || isFloat(arg) || isDouble(arg))
+	{
+		nbr = atof(arg.c_str());
+		toChar(nbr);
+		toInt(nbr);
+		toFloat(nbr);
+		toDouble(nbr);
+	}
+	else
+		throw 1;
 }
+
+void ScalarConverter::toChar(double nbr)
+{
+	if (nbr > std::numeric_limits<char>::max() || nbr < std::numeric_limits<char>::min())
+        std::cout << "impossible" << std::endl;
+	if (!isprint(nbr))
+			std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: " << static_cast<char>(nbr) << std::endl;
+}
+
+void ScalarConverter::toInt(double nbr)
+{
+	if (nbr > std::numeric_limits<int>::max() || nbr < std::numeric_limits<int>::min())
+        std::cout << "impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(nbr) << std::endl;
+}
+
+void ScalarConverter::toFloat(double nbr)
+{
+	if (nbr > std::numeric_limits<float>::max())
+        std::cout << "impossible" << std::endl;
+	else
+	{
+		if (!fmod(static_cast<double>(nbr), 1.0))
+			std::cout << "double: " << static_cast<double>(nbr) << ".0f" << std::endl;
+		else
+			std::cout << "double: " << static_cast<double>(nbr) << "f" << std::endl;
+	}
+}
+
+void ScalarConverter::toDouble(double nbr)
+{
+	if (nbr > std::numeric_limits<double>::max())
+        std::cout << "impossible" << std::endl;
+	else
+	{
+		if (!fmod(static_cast<double>(nbr), 1.0))
+			std::cout << "double: " << static_cast<double>(nbr) << ".0" << std::endl;
+		else
+			std::cout << "double: " << static_cast<double>(nbr) << std::endl;
+		
+	}
+}
+

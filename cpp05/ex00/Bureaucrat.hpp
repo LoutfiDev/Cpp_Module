@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:35:29 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/11/27 11:49:09 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:33:04 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ class Bureaucrat
 			}
 		};
 
-		
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& br);
