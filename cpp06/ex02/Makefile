@@ -6,13 +6,13 @@
 #    By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/30 15:07:52 by yloutfi           #+#    #+#              #
-#    Updated: 2023/12/10 10:45:18 by yloutfi          ###   ########.fr        #
+#    Updated: 2023/12/11 16:04:17 by yloutfi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = a.out
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 CXX = c++
 
 SRCS = main.cpp Base.cpp

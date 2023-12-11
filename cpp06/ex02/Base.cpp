@@ -6,15 +6,11 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 10:21:59 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/10 15:53:58 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/11 15:59:11 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
-#include "ClassA.hpp"
-#include "ClassB.hpp"
-#include "ClassC.hpp"
-
 
 Base::~Base()
 {
@@ -29,13 +25,13 @@ Base *generate(void)
 	switch (random)
 	{
 		case 1:
-			return ((Base *)(new ClassA()));
+			return (new ClassA);
 			break;
 		case 2:
-			return ((Base *)(new ClassB()));
+			return (new ClassB);
 			break;
 		case 3:
-			return ((Base *)(new ClassC()));
+			return (new ClassC);
 			break;
 		default:
 			break;
@@ -45,12 +41,42 @@ Base *generate(void)
 
 void identify(Base* p)
 {
-	(void)p;
-	std::cout << "generate" << std::endl;
+	if (dynamic_cast<ClassA *>(p))
+		std::cout << "A" << std::endl;
+	else if (dynamic_cast<ClassB *>(p))
+		std::cout << "B" << std::endl;
+	else if (dynamic_cast<ClassC *>(p))
+		std::cout << "C" << std::endl;
+	else
+		std::cout << "NULL" << std::endl;
 }
 
 void identify(Base& p)
 {
-	(void)p;
-	std::cout << "generate" << std::endl;
+	try
+	{
+		try
+		{
+			ClassA &A = dynamic_cast<ClassA&>(p);
+			std::cout << "A" << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			try
+			{
+				ClassB &B = dynamic_cast<ClassB&>(p);
+				std::cout << "B" << std::endl;
+			}
+			catch(const std::exception& e)
+			{
+				ClassC &C = dynamic_cast<ClassC&>(p);
+				std::cout << "C" << std::endl;
+			}
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "std::_bad_cast" << std::endl;
+	}
+	
 }

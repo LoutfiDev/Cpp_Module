@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 15:08:08 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/10 15:54:06 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/11 16:04:04 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int main()
 {
 	Base *b = generate();
+	identify(b);
+	identify(*b);
 	delete b;
-	system("leaks a.out");
 	return (0);
 }
+
