@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 11:16:13 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/06 15:42:27 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/07 11:00:16 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,20 @@ class ScalarConverter
 		ScalarConverter &operator=(const ScalarConverter& src);
 		~ScalarConverter();
 
-		static void convert(std::string arg);
-		static void check(std::string arg);
+		static void convert(const std::string arg);
+		static void check(const std::string arg);
 		
 
 		static void toChar(double nbr);
 		static void toInt(double nbr);
 		static void toFloat(double nbr);
 		static void toDouble(double nbr);
+		
+
+		static bool isChar(const std::string arg);
+		static bool isInt(const std::string arg);
+		static bool isFloat(const std::string arg);
+		static bool isDouble(const std::string arg);
 };
 
 

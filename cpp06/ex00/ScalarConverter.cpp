@@ -6,87 +6,13 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 11:16:03 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/06 16:10:27 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/07 10:53:41 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 
-int isInt(std::string arg)
-{
-	unsigned int i = 0;
-	if (arg[i] == '-' || arg[i] == '+')
-		i = 1;
-	while(i < arg.length())
-	{
-		if (arg[i] < '0' || arg[i] > '9')
-			return(0);
-		i++;
-	}
-	return (1);
-}
-int isChar(std::string arg)
-{
-	if (arg.length() > 1)
-		return (0);
-	return (1);
-}
-
-int isFloat(std::string arg)
-{
-	unsigned int	i;
-	int	dot;
-	int	sign;
-
-	dot = 0;
-	sign = 0;
-	i = 1;
-	if (arg[0] == '-' || arg[0] == '+')
-		sign++;
-	if ((arg[0] < 48 || arg[0] > 57) && !sign)
-		return (0);
-	while (i < arg.length() - 1)
-	{
-		if (arg[i] == 46)
-		{
-			dot++;
-			i++;
-		}
-		if (arg[i] < 48 || arg[i] > 57 || dot > 1)
-			return (0);
-		i++;
-	}
-	if (arg[i] != 'f')
-		return (0);
-	return (1);
-}
-int isDouble(std::string arg)
-{
-	unsigned int	i;
-	int	dot;
-	int	sign;
-
-	dot = 0;
-	sign = 0;
-	i = 1;
-	if (arg[0] == '-' || arg[0] == '+')
-		sign++;
-	if ((arg[0] < 48 || arg[0] > 57) && !sign)
-		return (0);
-	while (i < arg.length())
-	{
-		if (arg[i] == 46)
-		{
-			dot++;
-			i++;
-		}
-		if (arg[i] < 48 || arg[i] > 57 || dot > 1)
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 ScalarConverter::ScalarConverter() {}
 
@@ -96,7 +22,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter& src){ (void)s
 
 ScalarConverter::~ScalarConverter() {}
 
-void ScalarConverter::check(std::string arg)
+void ScalarConverter::check(const std::string arg)
 {
 	try
 	{
@@ -140,9 +66,9 @@ void ScalarConverter::check(std::string arg)
 	}
 }
 
-void ScalarConverter::convert(std::string arg)
+void ScalarConverter::convert(const std::string arg)
 {
-	long double nbr;
+	double nbr;
 	if (isChar(arg))
 	{
 		nbr = static_cast<int>(arg[0]);
@@ -166,17 +92,17 @@ void ScalarConverter::convert(std::string arg)
 void ScalarConverter::toChar(double nbr)
 {
 	if (nbr > std::numeric_limits<char>::max() || nbr < std::numeric_limits<char>::min())
-        std::cout << "impossible" << std::endl;
-	if (!isprint(nbr))
-			std::cout << "char: Non displayable" << std::endl;
+        std::cout << "char: impossible" << std::endl;
+	else if (!isprint(nbr))
+		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "char: " << static_cast<char>(nbr) << std::endl;
+		std::cout << "char: " << "'" << static_cast<char>(nbr) << "'" << std::endl;
 }
 
 void ScalarConverter::toInt(double nbr)
 {
 	if (nbr > std::numeric_limits<int>::max() || nbr < std::numeric_limits<int>::min())
-        std::cout << "impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(nbr) << std::endl;
 }
@@ -184,20 +110,20 @@ void ScalarConverter::toInt(double nbr)
 void ScalarConverter::toFloat(double nbr)
 {
 	if (nbr > std::numeric_limits<float>::max())
-        std::cout << "impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
 	else
 	{
 		if (!fmod(static_cast<double>(nbr), 1.0))
-			std::cout << "double: " << static_cast<double>(nbr) << ".0f" << std::endl;
+			std::cout << "float: " << static_cast<float>(nbr) << ".0f" << std::endl;
 		else
-			std::cout << "double: " << static_cast<double>(nbr) << "f" << std::endl;
+			std::cout << "float: " << static_cast<float>(nbr) << "f" << std::endl;
 	}
 }
 
 void ScalarConverter::toDouble(double nbr)
 {
 	if (nbr > std::numeric_limits<double>::max())
-        std::cout << "impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
 	else
 	{
 		if (!fmod(static_cast<double>(nbr), 1.0))
@@ -208,3 +134,77 @@ void ScalarConverter::toDouble(double nbr)
 	}
 }
 
+bool ScalarConverter::isInt(const std::string arg)
+{
+	unsigned int i = 0;
+	if (arg[i] == '-' || arg[i] == '+')
+		i = 1;
+	while(i < arg.length())
+	{
+		if (arg[i] < '0' || arg[i] > '9')
+			return(0);
+		i++;
+	}
+	return (1);
+}
+bool ScalarConverter::isChar(const std::string arg)
+{
+	if (arg.length() > 1 || isdigit(arg[0]))
+		return (0);
+	return (1);
+}
+
+bool ScalarConverter::isFloat(const std::string arg)
+{
+	unsigned int	i;
+	int	dot;
+	int	sign;
+
+	dot = 0;
+	sign = 0;
+	i = 1;
+	if (arg[0] == '-' || arg[0] == '+')
+		sign++;
+	if ((arg[0] < 48 || arg[0] > 57) && !sign)
+		return (0);
+	while (i < arg.length() - 1)
+	{
+		if (arg[i] == 46)
+		{
+			dot++;
+			i++;
+		}
+		if (arg[i] < 48 || arg[i] > 57 || dot > 1)
+			return (0);
+		i++;
+	}
+	if (arg[i] != 'f')
+		return (0);
+	return (1);
+}
+bool ScalarConverter::isDouble(const std::string arg)
+{
+	unsigned int	i;
+	int	dot;
+	int	sign;
+
+	dot = 0;
+	sign = 0;
+	i = 1;
+	if (arg[0] == '-' || arg[0] == '+')
+		sign++;
+	if ((arg[0] < 48 || arg[0] > 57) && !sign)
+		return (0);
+	while (i < arg.length())
+	{
+		if (arg[i] == 46)
+		{
+			dot++;
+			i++;
+		}
+		if (arg[i] < 48 || arg[i] > 57 || dot > 1)
+			return (0);
+		i++;
+	}
+	return (1);
+}

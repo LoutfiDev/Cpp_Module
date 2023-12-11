@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 15:08:08 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/10 15:54:06 by yloutfi          ###   ########.fr       */
+/*   Created: 2023/12/08 10:17:58 by yloutfi           #+#    #+#             */
+/*   Updated: 2023/12/10 10:18:16 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef __SERIAL__
+#define __SERIAL__
 
-int main()
+#include <iostream>
+#include <cstring>
+
+struct  Data
 {
-	Base *b = generate();
-	delete b;
-	system("leaks a.out");
-	return (0);
-}
+	int data;
+};
+
+class Serializer
+{
+	private:
+		Serializer();
+		
+	public:
+		Serializer(const Serializer& copy);
+		Serializer &operator=(const Serializer& src);
+		~Serializer();
+		
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+};
+
+#endif

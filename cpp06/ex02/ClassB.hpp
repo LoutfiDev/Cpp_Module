@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClassB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 15:08:08 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/10 15:54:06 by yloutfi          ###   ########.fr       */
+/*   Created: 2023/12/10 10:27:28 by yloutfi           #+#    #+#             */
+/*   Updated: 2023/12/10 10:27:44 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __B__
+#define __B__
+
 #include "Base.hpp"
 
-int main()
+class ClassB : public Base
 {
-	Base *b = generate();
-	delete b;
-	system("leaks a.out");
-	return (0);
-}
+	private:
+		/* data */
+	public:
+};
+
+#endif

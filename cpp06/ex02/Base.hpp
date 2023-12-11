@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 15:08:08 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/10 15:54:06 by yloutfi          ###   ########.fr       */
+/*   Created: 2023/12/10 10:22:25 by yloutfi           #+#    #+#             */
+/*   Updated: 2023/12/10 14:50:57 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef __Base__
+#define __Base__
 
-int main()
+#include <iostream>
+#include <cstring>
+
+class Base
 {
-	Base *b = generate();
-	delete b;
-	system("leaks a.out");
-	return (0);
-}
+	private:
+		
+	public:
+		virtual ~Base();
+};
+
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+#endif
