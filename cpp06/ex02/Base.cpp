@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 10:21:59 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/11 15:59:11 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/12 09:30:56 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void identify(Base& p)
 		{
 			ClassA &A = dynamic_cast<ClassA&>(p);
 			std::cout << "A" << std::endl;
+			(void)A;
 		}
 		catch(const std::exception& e)
 		{
@@ -66,11 +67,13 @@ void identify(Base& p)
 			{
 				ClassB &B = dynamic_cast<ClassB&>(p);
 				std::cout << "B" << std::endl;
+				(void)B;
 			}
 			catch(const std::exception& e)
 			{
 				ClassC &C = dynamic_cast<ClassC&>(p);
 				std::cout << "C" << std::endl;
+				(void)C;
 			}
 		}
 	}
@@ -78,5 +81,4 @@ void identify(Base& p)
 	{
 		std::cerr << "std::_bad_cast" << std::endl;
 	}
-	
 }
