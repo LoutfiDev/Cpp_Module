@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 10:17:58 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/10 10:18:16 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/13 09:51:59 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <stdint.h>
 
 struct  Data
 {
