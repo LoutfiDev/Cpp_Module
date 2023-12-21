@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 10:08:16 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/20 12:22:23 by yloutfi          ###   ########.fr       */
+/*   Created: 2023/12/20 12:25:04 by yloutfi           #+#    #+#             */
+/*   Updated: 2023/12/20 15:42:59 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#ifndef __SPAN__
+#define __SPAN__
+
+#include <iostream>
+#include <algorithm>
 #include <vector>
 
-
-int main ()
+class Span
 {
-	std::vector<int> v;
-	for (size_t i = 1; i <= 5; i++)
-		v.push_back(i);
-	easyfind(v,9);
-	return (0);
-}
+	private:
+		unsigned int N;
+		std::vector<int> v;
+
+	public:
+		Span();
+		Span(unsigned int nbr);
+		Span(const Span& copy);
+		Span &operator=(const Span& src);
+		~Span();
+		
+		void addNumber(int);
+		int shortestSpan();
+		int longestSpan();
+};
+
+#endif

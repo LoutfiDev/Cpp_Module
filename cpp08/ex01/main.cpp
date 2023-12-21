@@ -6,19 +6,21 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 10:08:16 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/20 12:22:23 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/20 15:51:22 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <vector>
+#include "span.hpp"
 
-
-int main ()
+int main()
 {
-	std::vector<int> v;
-	for (size_t i = 1; i <= 5; i++)
-		v.push_back(i);
-	easyfind(v,9);
-	return (0);
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	// std::cout << sp.longestSpan() << std::endl;
+	return 0;
 }

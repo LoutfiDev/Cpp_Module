@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 10:09:03 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/16 13:20:48 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/20 12:22:21 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 #include <iostream>
 #include <algorithm>
-#include <vector>
+#include <exception>
+
 
 template<typename T>
 void easyfind(T first, int second)
 {
 	try
 	{
-		(std::find(T.begin(), T.end(), second) == std::end(T))
-            ? std::cout << throw std::invalid_argument ("does not contain ") << n << '\n'
-            : std::cout << "contains " << n << '\n';
+		(std::find(first.begin(), first.end(), second) != first.end())
+        	? std::cout << "contains " << second << '\n'
+            : throw std::invalid_argument("does not contain");
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 }
 
 
