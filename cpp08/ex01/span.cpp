@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:24:39 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/20 16:04:29 by yloutfi          ###   ########.fr       */
+/*   Updated: 2023/12/21 11:34:41 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,52 +55,38 @@ void Span::addNumber(int nbr)
 	}
 	
 }
-int Span::shortestSpan()
+
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	int minDis;
 	try
 	{
-		std::vector<int>::const_iterator it;
-		std::vector<int>::const_iterator it2;
-		if (v.size() <= 1)
-			throw std::invalid_argument("No span can be found");
-		for (it = v.begin(); it != v.end(); it++)
-		{
-			for (it2 = v.begin(); it2 != v.end(); it2++)
-			{
-				if (minDis > std::min(*it, *it2)  && std::min(*it, *it2) >= 0 && it != it2)
-					minDis = std::min(*it, *it2);	
-			}
-			std::cout << "*************************" << '\n';
-		}
+		if (std::distance(begin, end) > N)
+			throw std::out_of_range("Span can't hold that much of elements");
+		v.insert(v.begin(), begin, end);
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	
+}
+int Span::shortestSpan()
+{
+	int minDis;
+	std::vector<int>::const_iterator it;
+	if (v.size() < 2)
+		throw std::invalid_argument("No span can be found");
+	std::sort(v.begin(), v.end());
+	minDis = *(it + 1) - *it;
+	for (it = v.begin(); it != v.end() - 1; it++)
+		if (minDis > *(it + 1) - *it)
+			minDis = *(it + 1) - *it;
 	return (minDis);
 }
 int Span::longestSpan()
 {
-	int maxDis = 0;
-	try
-	{
-		std::vector<int>::const_iterator it;
-		std::vector<int>::const_iterator it2;
-		if (v.size() <= 1)
-			throw std::invalid_argument("No span can be found");
-		for (it = v.begin(); it != v.end(); it++)
-		{
-			for (it2 = v.begin(); it2 != v.end(); it2++)
-			{
-				if (maxDis > std::max(*it, *it2)  && std::max(*it, *it2) >= 0 && it != it2)
-					maxDis = std::max(*it, *it2);	
-			}
-		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	return (maxDis);
+	if (v.size() < 2)
+		throw std::invalid_argument("No span can be found");
+	std::sort(v.begin(), v.end());
+	return (v.back() - v.front());
 }
