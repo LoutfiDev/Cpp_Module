@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 10:08:16 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/26 13:08:35 by yloutfi          ###   ########.fr       */
+/*   Created: 2023/12/26 10:23:26 by yloutfi           #+#    #+#             */
+/*   Updated: 2023/12/26 11:08:03 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <stack>
+#include "BitcoinExchange.hpp"
 
 
-int main ()
-{
-	std::stack<int> v;
-	v.push(5);
-	v.push(4);
-	v.push(3);
-	v.push(2);
-	v.push(1);
-	// for (size_t i = 1; i <= 5; i++)
-	// 	v.push_back(i);
-	easyfind(v,9);
+
+int main (int ac, char **av)
+{	
+	if (ac == 2)
+	{
+		std::string fileName = av[1];
+		BitcoinExchange::exchange(fileName);
+	}
+	else 
+		std::cout << av[0] << \
+			" accept 1 param (fileName) only!" <<std::endl; 
 	return (0);
 }
