@@ -66,6 +66,7 @@
 		"vector": "cpp",
 		"__functional_03": "cpp",
 		"filesystem": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"map": "cpp"
 	}
 }
