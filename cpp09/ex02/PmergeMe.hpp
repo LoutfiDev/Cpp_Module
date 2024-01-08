@@ -17,6 +17,9 @@
 #include <cstring>
 #include <cstdlib>
 #include <sstream>
+#include <vector>
+#include <deque>
+#include <exception>
 
 
 class PmergeMe
@@ -24,7 +27,8 @@ class PmergeMe
 	private:
 		PmergeMe();
 	public:
-		static void sort(std::string seque);
+		static void v_sort(std::vector<double>v);
+		static void d_sort(std::deque<double>d);
 		~PmergeMe();
 };
 

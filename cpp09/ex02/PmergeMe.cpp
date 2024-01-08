@@ -17,7 +17,13 @@ PmergeMe::~PmergeMe()
 {
 }
 
-void PmergeMe::sort(std::string seque)
+void PmergeMe::v_sort(std::vector<double>v)
 {
-	std::cout << seque << '\n';
+	std::vector<pair<double, double>>v_p;
+	
+}
+
+void PmergeMe::d_sort(std::deque<double>d)
+{
+	(void)d;
 }
