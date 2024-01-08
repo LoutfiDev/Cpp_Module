@@ -6,11 +6,22 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:19:57 by yloutfi           #+#    #+#             */
-/*   Updated: 2024/01/03 13:31:50 by yloutfi          ###   ########.fr       */
+/*   Updated: 2024/01/08 16:25:30 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+template<typename T>
+bool is_sorted(T v)
+{
+	for (double i = 0; i + 1 < v.size(); i++)
+	{
+		if (v[i] > v[i + 1])
+			return (false);
+	}
+	return (true);
+}
 
 void is_valid(char *av, std::vector<double>& v, std::deque<double>& d)
 {
@@ -38,12 +49,14 @@ int main(int ac, char **av)
 	{
 		for (int i=1; i < ac; i++)
 			is_valid(av[i], v, d);
+		if (is_sorted(v))
+			throw std::invalid_argument("Already sorted");
+		PmergeMe::v_sort(v);
+		PmergeMe::d_sort(d);
 	}
 	catch (const std::exception& e)
 	{
 		std::cout << e.what() << '\n';
 	}
-	PmergeMe::v_sort(v);
-	PmergeMe::d_sort(d);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:16:14 by yloutfi           #+#    #+#             */
-/*   Updated: 2024/01/08 10:38:52 by yloutfi          ###   ########.fr       */
+/*   Updated: 2024/01/08 14:59:43 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class PmergeMe
 	private:
 		PmergeMe();
 	public:
-		static void v_sort(std::vector<double>v);
-		static void d_sort(std::deque<double>d);
+		static void v_sort(std::vector<double>& v);
+		static void d_sort(std::deque<double>& d);
 		~PmergeMe();
 };
 
