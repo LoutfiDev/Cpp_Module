@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 13:16:14 by yloutfi           #+#    #+#             */
-/*   Updated: 2024/01/03 13:18:55 by yloutfi          ###   ########.fr       */
+/*   Updated: 2024/01/08 10:38:52 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
+#include <algorithm>
 #include <sstream>
 #include <vector>
 #include <deque>
