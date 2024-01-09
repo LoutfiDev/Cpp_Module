@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 09:30:54 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/14 15:57:46 by yloutfi          ###   ########.fr       */
+/*   Updated: 2024/01/09 09:59:56 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ template <typename T> class Array
 		Array(const Array& copy);
 		Array &operator=(const Array& src);
 		T& operator[](const int location);
+		const T& operator[](const int location) const;
 		unsigned int size( void );
 		~Array();
 };
@@ -73,6 +74,15 @@ template <class T> T& Array<T>::operator[](const int idx)
     else 
 		return arr[idx];
 }
+
+template <class T> const T& Array<T>::operator[](const int idx) const
+{
+    if (idx < 0 || static_cast<unsigned int>(idx) >= len) 
+		throw std::out_of_range("Invalid array access");
+    else 
+		return arr[idx];
+}
+
 
 template <class T> unsigned int Array<T>::size( void )
 {

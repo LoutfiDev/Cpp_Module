@@ -6,7 +6,7 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:04:42 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/13 16:05:59 by yloutfi          ###   ########.fr       */
+/*   Updated: 2024/01/09 11:56:50 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void show(T &x)
 	std::cout << x << std::endl;
 }
 
-template<typename T, typename LEN>
-void iter(T *array, LEN length, void (*f)(T& x))
+template<typename T, typename LEN, typename T2>
+void iter(T *array, LEN length, void (*f)(T2& x))
 {
-  for (LEN i = 0; i < length; i++)
-    f(array[i]);
+	if (!array || !f)
+        return ;
+	for (LEN i = 0; i < length; i++)
+    	f(array[i]);
 }
 #endif

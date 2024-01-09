@@ -6,24 +6,27 @@
 /*   By: yloutfi <yloutfi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 10:08:16 by yloutfi           #+#    #+#             */
-/*   Updated: 2023/12/26 13:08:35 by yloutfi          ###   ########.fr       */
+/*   Updated: 2024/01/09 12:13:27 by yloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-#include <stack>
+#include <vector>
 
 
 int main ()
 {
-	std::stack<int> v;
-	v.push(5);
-	v.push(4);
-	v.push(3);
-	v.push(2);
-	v.push(1);
-	// for (size_t i = 1; i <= 5; i++)
-	// 	v.push_back(i);
-	easyfind(v,9);
+	try
+	{
+		std::vector<int> v;
+		for (size_t i = 1; i <= 5; i++)
+			v.push_back(i);
+		easyfind(v,9);	
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	return (0);
 }
