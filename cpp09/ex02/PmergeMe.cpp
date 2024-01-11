@@ -21,6 +21,7 @@ void sort_p(T &v_p, int i)
 		sort_p(v_p, i-1);
 	}
 }
+
 template<typename T>
 double get_pos(T v, double value)
 {
@@ -70,11 +71,6 @@ void PmergeMe::v_sort(std::vector<double>& v)
 	
 	if(is_odd)
 		v.insert(v.begin() + get_pos(v, last), last);
-	
-	std::cout << "vector :" << std::endl;
-	for(unsigned int i = 0; i < v.size(); i++)
-		std::cout << v[i] << '\t';
-	std::cout << std::endl;
 }
 
 void PmergeMe::d_sort(std::deque<double>& d)
@@ -111,9 +107,4 @@ void PmergeMe::d_sort(std::deque<double>& d)
 	
 	if(is_odd)
 		d.insert(d.begin() + get_pos(d, last), last);
-	
-	std::cout << "deque :" << std::endl;
-	for(unsigned int i = 0; i < d.size(); i++)
-		std::cout << d[i] << '\t';
-	std::cout << std::endl;
 }

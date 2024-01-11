@@ -18,15 +18,18 @@ int main()
 	
 	try
 	{
-		std::vector<int> T(10000);
+		std::vector<int> T(3);
 		std::vector<int>::iterator it = T.begin();
 		for(int i = 1; it != T.end(); it++, i++)
 			*it = i;
-		Span sp = Span(10000);
+		Span sp = Span(3);
+		sp.addNumber(1);
+		sp.addNumber(2);
+		sp.addNumber(9);
 		sp.addNumber(T.begin(), T.end());
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
-		sp.addNumber(20);
+		
 	}
 	catch(const std::exception& e)
 	{

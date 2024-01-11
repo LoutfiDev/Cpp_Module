@@ -56,11 +56,12 @@ void Span::addNumber(int nbr)
 	
 }
 
+
 void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	try
 	{
-		if (std::distance(begin, end) > N)
+		if (std::distance(begin, end) + v.size() > N)
 			throw std::out_of_range("Span can't hold that much of elements");
 		v.insert(v.begin(), begin, end);
 	}
@@ -73,12 +74,12 @@ void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 int Span::shortestSpan()
 {
 	int minDis;
-	std::vector<int>::const_iterator it;
 	if (v.size() < 2)
 		throw std::invalid_argument("No span can be found");
 	std::sort(v.begin(), v.end());
+	std::vector<int>::iterator it = v.begin();
 	minDis = *(it + 1) - *it;
-	for (it = v.begin(); it != v.end() - 1; it++)
+	for (; it != v.end() - 1; it++)
 		if (minDis > *(it + 1) - *it)
 			minDis = *(it + 1) - *it;
 	return (minDis);
