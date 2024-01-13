@@ -15,7 +15,7 @@
 void display(std::vector<double> v, const char* str)
 {
 	std::cout << str;
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; (i < (int)v.size() && i < 5); i++)
 		std::cout << v[i] << " ";
 	if (v.size() > 5)
 		std::cout << "[...]";
@@ -26,13 +26,14 @@ void time_span(std::vector<double>& v, std::deque<double>& d)
 {
 	double d_timeSpan, v_timeSpan;
 	clock_t t1,t2, t3;
+
 	display(v, "Before: ");
-	display(v, "After : ");
 	t1 = clock();
 	PmergeMe::v_sort(v);
 	t2 = clock();
 	PmergeMe::d_sort(d);
 	t3 = clock();
+	display(v, "After : ");
 	v_timeSpan = (((double)(t2) / CLOCKS_PER_SEC) - ((double)(t1) / CLOCKS_PER_SEC)) * 1000000;
 	d_timeSpan = (((double)(t3) / CLOCKS_PER_SEC) - ((double)(t2) / CLOCKS_PER_SEC)) * 1000000;
 	std::cout << "Time to process a range of " << v.size()
@@ -65,8 +66,11 @@ void is_valid(char *av, std::vector<double>& v, std::deque<double>& d)
 			if (!isdigit(*it))
 				throw std::invalid_argument("Error");
 		}
-		v.push_back(atof(tmp.c_str()));
-		d.push_back(atof(tmp.c_str()));
+		if (std::find(v.begin(), v.end(), atof(tmp.c_str())) == v.end())
+		{
+			v.push_back(atof(tmp.c_str()));
+			d.push_back(atof(tmp.c_str()));
+		}
 	}
 }
 
@@ -89,8 +93,3 @@ int main(int ac, char **av)
 	return (0);
 }
 
-
-// Before: 141 79 526 321 [...]
-// After: 79 141 321 526 [...]
-// Time to process a range of 3000 elements with std::[..] : 62.14389 us
-// Time to process a range of 3000 elements with std::[..] : 69.27212 us

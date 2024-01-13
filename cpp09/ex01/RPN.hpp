@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <cstdlib>
 #include <sstream>
 #include <stack>
 
@@ -23,8 +24,10 @@ class RPN
     private :
         RPN();
     public :
-        static void calc (std::string mathExpress);
+        RPN(const RPN &copy);
+        RPN& operator=(const RPN& src);
         ~RPN();
+        static void calc (std::string mathExpress);
 };
 
 #endif

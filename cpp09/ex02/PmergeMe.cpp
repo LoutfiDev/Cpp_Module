@@ -12,6 +12,25 @@
 
 #include "PmergeMe.hpp"
 
+PmergeMe::PmergeMe()
+{
+}
+
+PmergeMe::PmergeMe(const PmergeMe& copy)
+{
+	(void)copy;
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe& src)
+{
+	(void)src;
+	return (*this);
+}
+
+PmergeMe::~PmergeMe()
+{
+}
+
 template<typename T>
 void sort_p(T &v_p, int i)
 {
@@ -31,10 +50,6 @@ double get_pos(T v, double value)
 			return (i);
 	}
 	return (v.size());
-}
-
-PmergeMe::~PmergeMe()
-{
 }
 
 void PmergeMe::v_sort(std::vector<double>& v)

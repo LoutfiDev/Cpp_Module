@@ -29,6 +29,8 @@ class BitcoinExchange
 		BitcoinExchange();
 		
 	public:
+		BitcoinExchange(const BitcoinExchange& copy);
+		BitcoinExchange& operator=(const BitcoinExchange& src);
 		~BitcoinExchange();
 		static void exchange(std::string fileName);
 };

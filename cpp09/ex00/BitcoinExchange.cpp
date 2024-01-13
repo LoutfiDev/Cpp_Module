@@ -13,9 +13,25 @@
 #include "BitcoinExchange.hpp"
 
 
+BitcoinExchange::BitcoinExchange()
+{
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy)
+{
+	(void)copy;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
+{
+	(void)src;
+	return (*this);
+}
+
 BitcoinExchange::~BitcoinExchange()
 {
 }
+
 void is_number(const std::string& s)
 {
     int dot = 0;

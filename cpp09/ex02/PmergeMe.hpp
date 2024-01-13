@@ -29,9 +29,11 @@ class PmergeMe
 	private:
 		PmergeMe();
 	public:
+		PmergeMe(const PmergeMe& copy);
+		PmergeMe& operator=(const PmergeMe& src);
+		~PmergeMe();
 		static void v_sort(std::vector<double>& v);
 		static void d_sort(std::deque<double>& d);
-		~PmergeMe();
 };
 
 
